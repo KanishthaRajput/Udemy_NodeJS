@@ -1,7 +1,8 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const publicdirectory = path.join(__dirname,'../public')
+const port = process.env.PORT || 3000
+const publicdirectory = path.join(__dirname, '../public')
 app.use(express.static(publicdirectory))
 
 app.get('', (req, res) => {
@@ -28,6 +29,6 @@ app.get('/weather', (req, res) => {
     res.send('Weather page !')
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
 })
